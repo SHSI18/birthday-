@@ -2073,6 +2073,82 @@ fireStyle.textContent = `
     document.getElementById("finalMessageBtn").style.display = "block";
   }
 </script>
+<!-- ✅ Final Mobile Fixes -->
+<style>
+  html, body {
+    height: auto !important;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+  }
+
+  #birthdayNote, #finalMessageScreen {
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 600px) {
+    body, .text, .photo-caption, #typedNote, #finalMessageText {
+      font-size: 1rem !important;
+      padding: 15px !important;
+      line-height: 1.6 !important;
+    }
+
+    button, input {
+      font-size: 1rem !important;
+    }
+
+    .gift-box {
+      font-size: 2.8rem !important;
+    }
+
+    .photo-wrapper img {
+      width: 90% !important;
+    }
+  }
+</style>
+
+<!-- ✅ Birthdate Input as DD MM YYYY Format -->
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const oldInput = document.getElementById("birthInput");
+    if (oldInput) {
+      const parent = oldInput.parentElement;
+      oldInput.remove();
+
+      const newHTML = `
+        <div style="margin-top: 10px;">
+          <input id="day" type="number" placeholder="DD" min="1" max="31" style="width:60px;" />
+          <input id="month" type="number" placeholder="MM" min="1" max="12" style="width:60px;" />
+          <input id="year" type="number" placeholder="YYYY" min="1900" max="2100" style="width:80px;" />
+        </div>
+      `;
+      parent.insertAdjacentHTML("afterbegin", newHTML);
+    }
+  });
+
+  function checkBirthdate() {
+    const d = document.getElementById("day").value.padStart(2, '0');
+    const m = document.getElementById("month").value.padStart(2, '0');
+    const y = document.getElementById("year").value;
+    const input = `${y}-${m}-${d}`;
+    const correct = "2010-09-01"; // 🎯 Your password
+
+    if (input === correct) {
+      document.getElementById("cakePasswordModal").style.display = "none";
+      document.getElementById("cake-interface").style.display = "none";
+      showBirthdayNoteThenMain();
+      const music = document.getElementById("bgMusic");
+      if (music) music.play().catch(() => {});
+    } else {
+      document.getElementById("cakeError").innerText = "❌ Incorrect date. Try again.";
+    }
+  }
+</script>
 
 </body>
 </html>
