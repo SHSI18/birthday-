@@ -2149,6 +2149,60 @@ fireStyle.textContent = `
     }
   }
 </script>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Comic Sans MS', cursive;
+  }
+
+  * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* Universal responsive text & image scaling */
+  h1, h2, h3, p, div, span, input, button {
+    font-size: calc(14px + 0.5vw);
+    line-height: 1.4;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* For 16:9 screens (landscape) */
+  @media screen and (min-aspect-ratio: 16/9) {
+    body {
+      font-size: 1vw;
+    }
+  }
+
+  /* For 9:16 screens (portrait/mobiles) */
+  @media screen and (max-aspect-ratio: 9/16) {
+    body {
+      font-size: 1.2vh;
+    }
+
+    .gift-box {
+      font-size: 3.5rem !important;
+    }
+
+    input, button {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+
+    .photo-wrapper img {
+      width: 90% !important;
+    }
+  }
+</style>
 
 </body>
 </html>
