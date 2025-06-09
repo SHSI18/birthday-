@@ -2203,6 +2203,62 @@ fireStyle.textContent = `
     }
   }
 </style>
+<style>
+  /* Base style for all screens */
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 16px;
+  }
+
+  /* Generic text scaling */
+  h1, h2, h3, p, div, span, input, button {
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+
+  /* For smaller mobile screens (portrait phones) */
+  @media screen and (max-width: 768px) {
+    html {
+      font-size: 13px !important;
+    }
+
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.3rem !important; }
+    h3 { font-size: 1.1rem !important; }
+
+    p, span, div, input, button {
+      font-size: 1rem !important;
+    }
+
+    .gift-box {
+      font-size: 3rem !important;
+    }
+
+    .photo-wrapper img {
+      width: 90% !important;
+    }
+  }
+
+  /* For medium and large screens (landscape/laptops) */
+  @media screen and (min-width: 769px) {
+    html {
+      font-size: 16px;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+
+    p, span, div, input, button {
+      font-size: 1.1rem;
+    }
+  }
+</style>
 
 </body>
 </html>
