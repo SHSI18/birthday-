@@ -2333,6 +2333,59 @@ fireStyle.textContent = `
     }
   }
 </style>
+<style>
+  @media screen and (max-width: 768px) {
+    /* 📏 Fix small cake size */
+    #cake-emoji {
+      font-size: 4.5rem !important;
+    }
+
+    #click-instruction {
+      font-size: 1.1rem !important;
+      padding: 0 15px;
+      text-align: center;
+    }
+
+    /* 🟥 Fix overlapping red/yellow texts */
+    .glow-title {
+      font-size: 1.8rem !important;
+      line-height: 1.3 !important;
+      padding: 0 10px;
+      word-break: break-word;
+    }
+
+    .glow-subtext {
+      font-size: 1.1rem !important;
+      padding: 0 15px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* 🖼️ Fix chain photo alignment */
+    .photo-wall {
+      display: flex !important;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .photo-chain-wrap {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .photo-wall img {
+      width: 100px !important;
+      border-width: 6px !important;
+    }
+
+    .chain {
+      height: 30px !important;
+    }
+  }
+</style>
 
 </body>
 </html>
