@@ -1,3 +1,4 @@
++
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2404,6 +2405,66 @@ fireStyle.textContent = `
   @keyframes swingChain {
     0% { transform: rotate(1.5deg); }
     100% { transform: rotate(-1.5deg); }
+  }
+</style>
+<style>
+  @media screen and (max-width: 768px) {
+    /* Ensure carousel images scale correctly */
+    .carousel {
+      width: 100vw !important;
+      height: auto !important;
+      padding: 0 10px;
+    }
+
+    .carousel img {
+      width: 100px !important;
+      height: 200px !important;
+      object-fit: cover;
+    }
+
+    /* Prevent footer from overlapping */
+    #letterNote {
+      font-size: 1rem !important;
+      max-width: 90%;
+    }
+
+    #surprise-msg {
+      font-size: 1.3rem !important;
+    }
+
+    .glow-title {
+      font-size: 2rem !important;
+    }
+
+    .glow-subtext {
+      font-size: 1.1rem !important;
+    }
+
+    .watermark {
+      font-size: 12px !important;
+      right: 10px;
+    }
+
+    /* Fix overlapping footer decorations */
+    .letter-strip {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    .photo-wall img {
+      width: 120px !important;
+    }
+
+    .photo-chain-wrap {
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Always ensure body fits all height without clipping footer */
+  html, body {
+    min-height: 100vh !important;
+    overflow-x: hidden;
+    overflow-y: auto !important;
   }
 </style>
 
