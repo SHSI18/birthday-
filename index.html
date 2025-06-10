@@ -2386,6 +2386,25 @@ fireStyle.textContent = `
     }
   }
 </style>
+<style>
+  /* 🔆 Glow effect when hovering over photos */
+  .photo-wall img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff99ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* 🪝 Chain gentle swing animation */
+  .chain {
+    animation: swingChain 2.5s ease-in-out infinite alternate;
+    transform-origin: top center;
+  }
+
+  @keyframes swingChain {
+    0% { transform: rotate(1.5deg); }
+    100% { transform: rotate(-1.5deg); }
+  }
+</style>
 
 </body>
 </html>
