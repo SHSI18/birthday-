@@ -2405,6 +2405,38 @@ fireStyle.textContent = `
     100% { transform: rotate(-1.5deg); }
   }
 </style>
+<style>
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #000000 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    height: auto;
+  }
+
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Force dark theme on bottom edge or filler */
+  body::after {
+    content: "";
+    display: block;
+    height: 100px;
+    width: 100%;
+    background: #000000;
+  }
+
+  /* Optional: fix for elements with min-height or full height causing space */
+  .full-height, .page-section, section, .container {
+    min-height: 0 !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+</style>
 
 </body>
 </html>
