@@ -1762,49 +1762,6 @@ fireStyle.textContent = `
     margin-top: 10px;
   }
 </style>
-
-<!-- 🔐 Password Popup -->
-<div id="cakePasswordModal">
-  <div class="cake-modal-content">
-    <h2>🔒 Enter Birthdate</h2>
-    <input type="date" id="birthInput" />
-    <br />
-    <button onclick="checkBirthdate()">Unlock</button>
-    <div class="cake-error" id="cakeError"></div>
-  </div>
-</div>
-
-<!-- 🎂 Password Logic -->
-<script>
-  const correctBirthdate = "2010-07-23";  // 🎯YOUR PASSWORD HERE
-
-  function goToMainContent() {
-    // Show popup instead of revealing content immediately
-    document.getElementById('cakePasswordModal').style.display = 'flex';
-  }
-
-  function checkBirthdate() {
-    const input = document.getElementById("birthInput").value;
-    const errorBox = document.getElementById("cakeError");
-
-    if (!input) {
-      errorBox.innerText = "Please select a date.";
-      return;
-    }
-
-    if (input === correctBirthdate) {
-      // ✅ Continue to main content
-      document.getElementById("cakePasswordModal").style.display = "none";
-      document.getElementById("cake-interface").style.display = "none";
-      showBirthdayNoteThenMain();
-      const music = document.getElementById("bgMusic");
-      if (music) music.play().catch(() => {});
-    } else {
-      errorBox.innerText = "❌ Incorrect date. Try again.";
-    }
-  }
-</script>
-<script src="logic.js?v=2"></script>
   <!-- 💌 Birthday Note Typewriter Message -->
 <style>
   #birthdayNote {
