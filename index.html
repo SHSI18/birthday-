@@ -1796,7 +1796,7 @@ fireStyle.textContent = `
       // ✅ Continue to main content
       document.getElementById("cakePasswordModal").style.display = "none";
       document.getElementById("cake-interface").style.display = "none";
-      showBirthdayNoteThenMain();
+      startCatGame();
       const music = document.getElementById("bgMusic");
       if (music) music.play().catch(() => {});
     } else {
@@ -2143,7 +2143,7 @@ fireStyle.textContent = `
     if (input === correct) {
       document.getElementById("cakePasswordModal").style.display = "none";
       document.getElementById("cake-interface").style.display = "none";
-      showBirthdayNoteThenMain();
+      startCatGame();
       const music = document.getElementById("bgMusic");
       if (music) music.play().catch(() => {});
     } else {
@@ -2467,6 +2467,73 @@ fireStyle.textContent = `
     overflow-y: auto !important;
   }
 </style>
+<!-- 🐱 Personal Message Unlock Game -->
+<div id="catGameInterface" style="display:none; text-align:center; padding:20px;">
+  <h2 style="color:white; font-family:cursive;">Click the 🐱 cats to unlock your message!</h2>
+  <div id="catContainer" style="font-size:40px; margin-top:20px;"></div>
+  <div id="catMessage" style="margin-top:20px; color:yellow; font-size:24px; font-weight:bold;"></div>
+</div>
+
+<script>
+  // 🎯 Words to reveal
+  const gameWords = ["Happy", "Birthday", "Aru"];
+  let revealedWords = [];
+  let catsClicked = 0;
+
+  function startCatGame() {
+    // Hide cake/password interface
+    document.getElementById("cake-interface").style.display = "none";
+
+    // Show game interface
+    const game = document.getElementById("catGameInterface");
+    game.style.display = "block";
+
+    // Start background music
+    const music = document.getElementById("bgMusic");
+    if (music) music.play().catch(()=>{});
+
+    // Add cats
+    const catContainer = document.getElementById("catContainer");
+    catContainer.innerHTML = "";
+    for (let i = 0; i < gameWords.length; i++) {
+      const cat = document.createElement("span");
+      cat.innerHTML = "🐱";
+      cat.style.cursor = "pointer";
+      cat.style.margin = "10px";
+      cat.onclick = function() { revealWord(i, cat); };
+      catContainer.appendChild(cat);
+    }
+  }
+
+  function revealWord(index, catElement) {
+    if (!revealedWords.includes(index)) {
+      revealedWords.push(index);
+      catsClicked++;
+      catElement.innerHTML = gameWords[index]; // Replace 🐱 with word
+      document.getElementById("catMessage").innerText = revealedWords
+        .sort((a, b) => a - b)
+        .map(i => gameWords[i])
+        .join(" ");
+    }
+    if (catsClicked === gameWords.length) {
+      setTimeout(() => {
+        // Hide game
+        document.getElementById("catGameInterface").style.display = "none";
+        // Show birthday note
+        showBirthdayNoteThenMain();
+      }, 1000);
+    }
+  }
+
+  // 🛠 Integrate with your existing DOB check
+  // Replace the part where you currently call showBirthdayNoteThenMain()
+  // after correct password with startCatGame();
+  // Example:
+  // if (input === correctBirthdate) {
+  //   document.getElementById("cakePasswordModal").style.display = "none";
+  //   startCatGame();
+  // }
+</script>
 
 </body>
 </html>
