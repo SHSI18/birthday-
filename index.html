@@ -2534,6 +2534,73 @@ fireStyle.textContent = `
   //   startCatGame();
   // }
 </script>
+<!-- 🐱 Fullscreen Cat Unlock Game -->
+<div id="catGameInterface" style="display:none; text-align:center; padding:20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+  <h2 style="color:white; font-family:cursive; font-size:clamp(22px, 5vw, 40px); text-shadow:0 0 8px pink; text-align:center;">
+    Click the 🐱 cats to unlock your message!
+  </h2>
+  <div id="catContainer" style="font-size:clamp(50px, 12vw, 100px); margin-top:30px; display:flex; gap:20px; flex-wrap:wrap; justify-content:center;"></div>
+  <div id="catMessage" style="margin-top:30px; color:yellow; font-size:clamp(20px, 6vw, 40px); font-weight:bold; text-shadow:0 0 8px black;"></div>
+</div>
+
+<script>
+  const gameWords = ["Happy", "Birthday", "Aru"];
+  let revealedWords = [];
+  let catsClicked = 0;
+
+  function startCatGame() {
+    // Hide everything else
+    document.getElementById("cake-interface").style.display = "none";
+    const birthdayText = document.querySelector(".birthday-text");
+    if (birthdayText) birthdayText.style.display = "none";
+
+    // Show game
+    const game = document.getElementById("catGameInterface");
+    game.style.display = "flex";
+
+    // Play music
+    const music = document.getElementById("bgMusic");
+    if (music) music.play().catch(()=>{});
+
+    // Reset
+    const catContainer = document.getElementById("catContainer");
+    catContainer.innerHTML = "";
+    revealedWords = [];
+    catsClicked = 0;
+    document.getElementById("catMessage").innerText = "";
+
+    // Add cats
+    for (let i = 0; i < gameWords.length; i++) {
+      const cat = document.createElement("span");
+      cat.innerHTML = "🐱";
+      cat.style.cursor = "pointer";
+
+      // Handle both click & touch
+      cat.addEventListener("click", () => revealWord(i, cat));
+      cat.addEventListener("touchstart", () => revealWord(i, cat), { passive: true });
+
+      catContainer.appendChild(cat);
+    }
+  }
+
+  function revealWord(index, catElement) {
+    if (!revealedWords.includes(index)) {
+      revealedWords.push(index);
+      catsClicked++;
+      catElement.innerHTML = gameWords[index];
+      document.getElementById("catMessage").innerText = revealedWords
+        .sort((a, b) => a - b)
+        .map(i => gameWords[i])
+        .join(" ");
+    }
+    if (catsClicked === gameWords.length) {
+      setTimeout(() => {
+        document.getElementById("catGameInterface").style.display = "none";
+        showBirthdayNoteThenMain();
+      }, 800);
+    }
+  }
+</script>
 
 </body>
 </html>
