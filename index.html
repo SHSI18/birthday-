@@ -2505,6 +2505,41 @@ button:hover {
   100% { box-shadow: 0 0 15px rgba(255, 0, 128, 0.6), 0 0 30px rgba(64, 224, 208, 0.4); }
 }
 </style>
+<style>
+/* ❌ Close Button Special Glow */
+.close-btn {
+  position: absolute;
+  bottom: 20px; /* put at bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff1e56;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 30, 86, 0.6), 0 0 25px rgba(255, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  animation: closeGlow 3s infinite alternate;
+  z-index: 9999;
+}
+
+.close-btn:hover {
+  transform: translateX(-50%) scale(1.2) rotate(10deg);
+  box-shadow: 0 0 30px rgba(255, 50, 100, 1), 0 0 60px rgba(255, 0, 0, 0.9);
+  background: #ff003c;
+}
+
+/* 🔄 Gentle breathing glow */
+@keyframes closeGlow {
+  0% { box-shadow: 0 0 15px rgba(255, 30, 86, 0.6), 0 0 25px rgba(255, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 25px rgba(255, 60, 100, 0.9), 0 0 50px rgba(255, 0, 0, 0.8); }
+  100% { box-shadow: 0 0 15px rgba(255, 30, 86, 0.6), 0 0 25px rgba(255, 0, 0, 0.5); }
+}
+</style>
 
 </body>
 </html>
