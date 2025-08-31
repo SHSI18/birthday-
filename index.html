@@ -2540,6 +2540,46 @@ button:hover {
   100% { box-shadow: 0 0 15px rgba(255, 30, 86, 0.6), 0 0 25px rgba(255, 0, 0, 0.5); }
 }
 </style>
+<style>
+/* 🔥 Emoji Close Button */
+.close-btn {
+  position: absolute;
+  bottom: 20px; /* bottom center */
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, #ff1e56, #b3002d);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 2em;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 30, 86, 0.6), 0 0 35px rgba(255, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out;
+  animation: closeGlow 3s infinite alternate, bounceEmoji 2s infinite;
+  z-index: 9999;
+}
+
+/* Strong hover glow */
+.close-btn:hover {
+  transform: translateX(-50%) scale(1.2) rotate(10deg);
+  box-shadow: 0 0 40px rgba(255, 60, 100, 1), 0 0 70px rgba(255, 0, 0, 1);
+}
+
+/* 🔄 Breathing glow effect */
+@keyframes closeGlow {
+  0% { box-shadow: 0 0 15px rgba(255, 30, 86, 0.6), 0 0 35px rgba(255, 0, 0, 0.6); }
+  50% { box-shadow: 0 0 35px rgba(255, 60, 100, 1), 0 0 60px rgba(255, 0, 0, 0.9); }
+  100% { box-shadow: 0 0 15px rgba(255, 30, 86, 0.6), 0 0 35px rgba(255, 0, 0, 0.6); }
+}
+
+/* 🕺 Bouncing emoji animation */
+@keyframes bounceEmoji {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+</style>
 
 </body>
 </html>
