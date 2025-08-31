@@ -2468,6 +2468,43 @@ fireStyle.textContent = `
     overflow-y: auto !important;
   }
 </style>
+<style>
+/* 🌟 Universal Glowing Buttons */
+button {
+  background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0);
+  background-size: 300% 300%;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 0, 128, 0.6), 0 0 30px rgba(64, 224, 208, 0.4);
+  transition: all 0.3s ease-in-out;
+  animation: glowMove 6s infinite alternate;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 140, 0, 0.9), 0 0 50px rgba(255, 0, 128, 0.8);
+  animation: glowPulse 1.5s infinite;
+}
+
+/* 🔄 Moving glow background */
+@keyframes glowMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 💖 Pulse glow on hover */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 15px rgba(255, 0, 128, 0.6), 0 0 30px rgba(64, 224, 208, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(255, 140, 0, 1), 0 0 70px rgba(255, 0, 128, 0.9); }
+  100% { box-shadow: 0 0 15px rgba(255, 0, 128, 0.6), 0 0 30px rgba(64, 224, 208, 0.4); }
+}
+</style>
 
 </body>
 </html>
